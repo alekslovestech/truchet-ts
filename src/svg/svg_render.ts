@@ -5,7 +5,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as os from "os";
 import { execSync } from "child_process";
-import { TileStyle } from "../tilestyle";
+import { TileStyle } from "../lib/tilestyle";
 import {
   CELL_SIZE,
   STROKE_CONTOUR,
@@ -18,7 +18,7 @@ import { makeSvgLinePoints } from "./svg_utils";
 function makeSvgGridLines(
   cols: number,
   rows: number,
-  cellSize: number
+  cellSize: number,
 ): string {
   const width = cols * cellSize;
   const height = rows * cellSize;
@@ -44,7 +44,7 @@ function makeSvgGridLines(
 export function linesToSvg(
   lines: string[],
   initTileFlipped: boolean,
-  style: TileStyle = TileStyle.BOWTIE
+  style: TileStyle = TileStyle.BOWTIE,
 ): string {
   if (!lines.length) {
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0"></svg>';
@@ -68,7 +68,7 @@ export function linesToSvg(
       cells.push(
         `<g transform="translate(${x},${y})" stroke="${STROKE_CONTOUR}" fill="none" stroke-width="1">` +
           cell +
-          "</g>"
+          "</g>",
       );
     }
   }
@@ -83,10 +83,7 @@ export function linesToSvg(
 
 /** Write the SVG to a temp file and open it in the default browser. */
 export function displaySvg(svg: string): void {
-  const tmpPath = path.join(
-    os.tmpdir(),
-    `truchet-${Date.now()}.svg`
-  );
+  const tmpPath = path.join(os.tmpdir(), `truchet-${Date.now()}.svg`);
   fs.writeFileSync(tmpPath, svg, "utf-8");
   const cmd =
     process.platform === "win32"

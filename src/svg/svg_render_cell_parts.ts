@@ -4,7 +4,7 @@
 import type { Point } from "./cell_constants";
 import { CELL_FRACTION, CELL_PTS } from "./cell_constants";
 import { makeSvgTrianglePoints, FILL_TRIANGLE } from "./svg_utils";
-import { TileStyle } from "../tilestyle";
+import { TileStyle } from "../lib/tilestyle";
 
 function fillCircleQuadrant(corner: Point, pt1: Point, pt2: Point): string {
   const radius = CELL_FRACTION;

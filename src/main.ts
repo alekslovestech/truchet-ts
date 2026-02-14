@@ -5,8 +5,8 @@
 import * as fs from "fs";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { processText } from "./formatter";
-import { TileStyle } from "./tilestyle";
+import { processText } from "./lib/formatter";
+import { TileStyle } from "./lib/tilestyle";
 import { displaySvg, linesToSvg } from "./svg/svg_render";
 
 const argv = yargs(hideBin(process.argv))
@@ -32,7 +32,8 @@ const argv = yargs(hideBin(process.argv))
     alias: "f",
     type: "boolean",
     default: false,
-    description: "First tile is hourglass (⧗), as opposed to bowtie (⧓, default)",
+    description:
+      "First tile is hourglass (⧗), as opposed to bowtie (⧓, default)",
   })
   .option("svg", {
     alias: "s",
@@ -42,8 +43,7 @@ const argv = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const userInput =
-  argv.word ?? fs.readFileSync(0, "utf-8").trim();
+const userInput = argv.word ?? fs.readFileSync(0, "utf-8").trim();
 
 const output = processText(userInput, argv.inverted);
 

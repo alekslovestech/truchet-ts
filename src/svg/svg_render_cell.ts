@@ -1,14 +1,14 @@
 /**
  * SVG rendering for a single cell (contours and fills by style).
  */
-import type { TileChar } from "../tiles";
+import type { TileChar } from "../lib/tiles";
 import {
   Direction,
   Corners,
   availableDirections,
   unavailableCorners,
-} from "../tiles";
-import { TileStyle } from "../tilestyle";
+} from "../lib/tiles";
+import { TileStyle } from "../lib/tilestyle";
 import { makeSvgLinePoints } from "./svg_utils";
 import { CELL_PTS, CELL_SIZE as CELL_SIZE_CONST } from "./cell_constants";
 import {
@@ -17,7 +17,7 @@ import {
   bowtieTriangle,
 } from "./svg_render_cell_parts";
 
-export type { TileChar } from "../tiles";
+export type { TileChar } from "../lib/tiles";
 export const CELL_SIZE = CELL_SIZE_CONST;
 export const STROKE_CONTOUR = "#111";
 export const STROKE_GRID = "#ccc";
