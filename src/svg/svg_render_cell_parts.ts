@@ -3,7 +3,7 @@
  */
 import type { Point } from "./cell_constants";
 import { CELL_FRACTION, CELL_PTS } from "./cell_constants";
-import { makeSvgTrianglePoints, FILL_TRIANGLE } from "./svg_utils";
+import { makeSvgTrianglePoints } from "./svg_utils";
 import { TileStyle } from "../lib/tilestyle";
 
 function fillCircleQuadrant(corner: Point, pt1: Point, pt2: Point): string {
@@ -13,7 +13,7 @@ function fillCircleQuadrant(corner: Point, pt1: Point, pt2: Point): string {
     `<path d="M ${corner[0]} ${corner[1]} ` +
     `L ${pt1[0]} ${pt1[1]} ` +
     `A ${radius} ${radius} 0 0 ${sweep} ${pt2[0]} ${pt2[1]} Z" ` +
-    `fill="${FILL_TRIANGLE}" stroke="none"/>`
+    `fill="var(--fill-triangle)" stroke="none"/>`
   );
 }
 

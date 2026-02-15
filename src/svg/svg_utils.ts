@@ -1,7 +1,3 @@
-/**
- * SVG path/line helpers and fill constants.
- */
-
 import type { Point } from "./cell_constants";
 
 /** Return an SVG line element from pt1 to pt2. */
