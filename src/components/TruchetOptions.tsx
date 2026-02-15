@@ -18,7 +18,7 @@ export default function TruchetOptions({
 }) {
   const setOption = <K extends keyof TruchetOptionsType>(
     key: K,
-    value: TruchetOptionsType[K]
+    value: TruchetOptionsType[K],
   ) => {
     onChange({ ...options, [key]: value });
   };
@@ -48,9 +48,7 @@ export default function TruchetOptions({
           <span className="option-label">Style</span>
           <select
             value={options.style}
-            onChange={(e) =>
-              setOption("style", e.target.value as TileStyle)
-            }
+            onChange={(e) => setOption("style", e.target.value as TileStyle)}
             aria-label="Rendering style"
           >
             {STYLE_OPTIONS.map((opt) => (
@@ -75,12 +73,10 @@ export default function TruchetOptions({
           <input
             type="checkbox"
             checked={options.initTileFlipped}
-            onChange={(e) =>
-              setOption("initTileFlipped", e.target.checked)
-            }
+            onChange={(e) => setOption("initTileFlipped", e.target.checked)}
             aria-label="First tile is hourglass"
           />
-          <span>Init tile flipped (first tile hourglass ⧗ vs bowtie ⧓)</span>
+          <span>Initial tile flipped (e.g. hourglass ⧗ vs bowtie ⧓)</span>
         </label>
       </div>
     </div>
