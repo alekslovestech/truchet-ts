@@ -17,7 +17,7 @@ const SVG_VIEW_HEIGHT = 120;
 function makeSvgGridLines(
   cols: number,
   rows: number,
-  cellSize: number
+  cellSize: number,
 ): string {
   const width = cols * cellSize;
   const height = rows * cellSize;
@@ -43,7 +43,7 @@ function makeSvgGridLines(
 export function linesToSvg(
   lines: string[],
   initTileFlipped: boolean,
-  style: TileStyle = TileStyle.BOWTIE
+  style: TileStyle = TileStyle.BOWTIE,
 ): string {
   if (!lines.length) {
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SVG_VIEW_WIDTH} ${SVG_VIEW_HEIGHT}" width="${SVG_VIEW_WIDTH}" height="${SVG_VIEW_HEIGHT}"></svg>`;
@@ -65,7 +65,7 @@ export function linesToSvg(
       cells.push(
         `<g transform="translate(${x},${y})" stroke="${STROKE_CONTOUR}" fill="none" stroke-width="1">` +
           cell +
-          "</g>"
+          "</g>",
       );
     }
   }

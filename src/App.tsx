@@ -8,7 +8,7 @@ import { linesToSvg } from "./svg/lines_to_svg";
 import "./App.css";
 
 const DEFAULT_OPTIONS: TruchetOptionsType = {
-  word: "",
+  word: "word",
   style: TileStyle.BOWTIE,
   inverted: false,
   initTileFlipped: false,
@@ -30,11 +30,9 @@ function App() {
       return;
     }
     let cancelled = false;
-    processText(submittedOptions.word, options.inverted).then(
-      (result) => {
-        if (!cancelled) setOutput(result);
-      }
-    );
+    processText(submittedOptions.word, options.inverted).then((result) => {
+      if (!cancelled) setOutput(result);
+    });
     return () => {
       cancelled = true;
     };
@@ -43,7 +41,7 @@ function App() {
   const svgContent = useMemo(() => {
     if (!output) return "";
     const lines = output.split("\n");
-    const initTileFlipped = !options.initTileFlipped;
+    const initTileFlipped = options.initTileFlipped;
     return linesToSvg(lines, initTileFlipped, options.style);
   }, [output, options.initTileFlipped, options.style]);
 
