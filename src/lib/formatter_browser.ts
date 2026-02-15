@@ -37,10 +37,11 @@ export async function processText(
   }
   if (!letters.length) return "";
   const combined = combineLetters(letters, isInverted);
-  if (isInverted) {
-    const frame = "X".repeat(combined[0].length + 2);
-    return [frame, ...combined.map((l) => `X${l}X`), frame].join("\n");
-  }
-  const spacerRow = " ".repeat(combined[0].length);
-  return [spacerRow, ...combined, spacerRow].join("\n");
+  const frameChar = isInverted ? "X" : " ";
+  const frame = frameChar.repeat(combined[0].length + 2);
+  return [
+    frame,
+    ...combined.map((l) => `${frameChar}${l}${frameChar}`),
+    frame,
+  ].join("\n");
 }
