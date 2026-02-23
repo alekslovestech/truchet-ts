@@ -1,0 +1,39 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.output-area {
+  margin-top: 1.5rem;
+}
+
+.canvas-window {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  --fill-triangle: #444;
+  --empty-triangle: #ffffc0;
+  background: var(--empty-triangle);
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.canvas-window .svg-canvas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas-window svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.output-placeholder {
+  color: rgba(239, 5, 5, 0.5);
+  font-size: 0.95em;
+}
