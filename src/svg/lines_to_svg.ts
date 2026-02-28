@@ -4,8 +4,6 @@
 import { TileStyle } from "../lib/tilestyle";
 import {
   CELL_SIZE,
-  STROKE_CONTOUR,
-  STROKE_GRID,
   drawCell,
   type TileChar,
 } from "./svg_render_cell";
@@ -31,7 +29,7 @@ function makeSvgGridLines(
     gridLines.push(makeSvgLinePoints([0, y], [width, y]));
   }
   return (
-    `<g stroke="${STROKE_GRID}" stroke-width="0.5" fill="none">` +
+    `<g class="grid-stroke" stroke-width="0.5" fill="none">` +
     gridLines.join("") +
     "</g>"
   );
@@ -65,7 +63,7 @@ export function linesToSvg(
       const ch = row[c] as TileChar;
       const cell = drawCell(ch, isEven, initTileFlipped, style);
       cells.push(
-        `<g transform="translate(${x},${y})" stroke="${STROKE_CONTOUR}" fill="none" stroke-width="1">` +
+        `<g class="tile-stroke" transform="translate(${x},${y})" fill="none" stroke-width="1">` +
           cell +
           "</g>",
       );

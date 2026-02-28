@@ -19,8 +19,6 @@ import {
 
 export type { TileChar } from "../lib/tiles";
 export const CELL_SIZE = CELL_SIZE_CONST;
-export const STROKE_CONTOUR = "#111";
-export const STROKE_GRID = "#ccc";
 
 function drawCellContours(ch: TileChar): string {
   if (ch === " ") return "";

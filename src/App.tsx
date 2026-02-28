@@ -5,12 +5,12 @@ import type { TruchetOptions as TruchetOptionsType } from "./lib/types";
 import { TileStyle } from "./lib/tilestyle";
 import { processText } from "./lib/formatter_browser";
 import { linesToSvg } from "./svg/lines_to_svg";
-import "./App.css";
+import "./css/App.css";
 
 const DEFAULT_OPTIONS: TruchetOptionsType = {
   word: "word",
   style: TileStyle.BOWTIE,
-  inverted: false,
+  inverted: true,
   initTileFlipped: false,
 };
 
@@ -41,8 +41,7 @@ function App() {
   const svgContent = useMemo(() => {
     if (!output) return "";
     const lines = output.split("\n");
-    const initTileFlipped = options.initTileFlipped;
-    return linesToSvg(lines, initTileFlipped, options.style);
+    return linesToSvg(lines, !options.initTileFlipped, options.style);
   }, [output, options.initTileFlipped, options.style]);
 
   return (
