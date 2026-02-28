@@ -64,9 +64,9 @@ export default function TruchetOptions({
             type="checkbox"
             checked={options.inverted}
             onChange={(e) => setOption("inverted", e.target.checked)}
-            aria-label="Use inverted (empty-space) style"
+            aria-label="Render inverted word"
           />
-          <span>Inverted (empty-space style)</span>
+          <span>Inverted word</span>
         </label>
 
         <label className="option-group option-checkbox">
@@ -76,7 +76,7 @@ export default function TruchetOptions({
             onChange={(e) => setOption("initTileFlipped", e.target.checked)}
             aria-label="First tile is hourglass"
           />
-          <span>Initial tile flipped (e.g. hourglass ⧗ vs bowtie ⧓)</span>
+          <span>Rotated tiles (90°)</span>
         </label>
       </div>
     </div>
