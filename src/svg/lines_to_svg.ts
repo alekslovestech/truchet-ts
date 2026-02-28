@@ -12,7 +12,7 @@ import {
 import { makeSvgLinePoints } from "./svg_utils";
 
 const SVG_VIEW_WIDTH = 400;
-const SVG_VIEW_HEIGHT = 120;
+const SVG_VIEW_HEIGHT = 160;
 
 function makeSvgGridLines(
   cols: number,
@@ -51,6 +51,8 @@ export function linesToSvg(
 
   const cols = Math.max(...lines.map((row) => row.length));
   const rows = lines.length;
+  const width = cols * CELL_SIZE;
+  const height = rows * CELL_SIZE;
   const grid = makeSvgGridLines(cols, rows, CELL_SIZE);
   const cells: string[] = [];
 
@@ -71,7 +73,7 @@ export function linesToSvg(
   }
 
   return (
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SVG_VIEW_WIDTH} ${SVG_VIEW_HEIGHT}" width="${SVG_VIEW_WIDTH}" height="${SVG_VIEW_HEIGHT}">` +
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">` +
     grid +
     cells.join("") +
     "</svg>"
