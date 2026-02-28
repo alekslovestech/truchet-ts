@@ -14,7 +14,9 @@
   justify-content: center;
   min-height: 12rem;
   --fill-triangle: #444;
-  --empty-triangle: #ffffc0;
+  --empty-triangle: #cccccc;
+  --tile-stroke-color: #111111;
+  --grid-stroke-color: #1a1a1a;
   background: var(--empty-triangle);
   border: 2px solid #333;
   border-radius: 8px;
@@ -33,7 +35,10 @@
   height: auto;
 }
 
-.output-placeholder {
-  color: rgba(239, 5, 5, 0.5);
-  font-size: 0.95em;
+.canvas-window .grid-stroke {
+  stroke: var(--grid-stroke-color);
+}
+
+.canvas-window .tile-stroke {
+  stroke: var(--tile-stroke-color);
 }

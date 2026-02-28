@@ -5,7 +5,7 @@ import type { TruchetOptions as TruchetOptionsType } from "./lib/types";
 import { TileStyle } from "./lib/tilestyle";
 import { processText } from "./lib/formatter_browser";
 import { linesToSvg } from "./svg/lines_to_svg";
-import "./App.css";
+import "./css/App.css";
 
 const DEFAULT_OPTIONS: TruchetOptionsType = {
   word: "word",
