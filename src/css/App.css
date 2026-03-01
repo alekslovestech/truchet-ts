@@ -20,7 +20,7 @@
   background: var(--empty-triangle);
   border: 2px solid #333;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 0.5rem;
 }
 
 .canvas-window .svg-canvas {
