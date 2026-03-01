@@ -47,7 +47,7 @@ async function generateIcons(): Promise<void> {
   // Generate OpenGraph preview image
   const generateOpenGraphBuffer = (svgPath: string) =>
     sharp(svgPath)
-      .resize(1200, 630, {
+      .resize(1200, 1200, {
         fit: "contain",
         background: { r: 255, g: 255, b: 255, alpha: 1 },
       })
